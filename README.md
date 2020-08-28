@@ -1,3 +1,39 @@
+# Deprecated
+Either the people who manage the account servers fixed this, or the Nebulous servers are just garbage. ¯\_(ツ)_/¯
+
+You can use the following(really basic) batch script to get the most out of a view bot:
+```
+@echo off
+
+set /a views=0
+set /a total_views=0
+
+rem set your ticket here vv. before setting it though, make sure it's url-encoded.
+rem see the text below this script for a website you can use to url-encode your ticket.
+set /a ticket=
+
+rem set the account id here that will recieve the views
+set /a accID=0
+
+:loop
+if %views% equ 25 (
+  echo Total views: %total_views%
+  timeout /t 30 /nobreak
+  set /a views=0
+)
+
+curl -d "Game=Nebulous&Version=1065&Ticket=%ticket%&accountID=%accID%" https://www.simplicialsoftware.com/api/account/GetPlayerProfile
+
+set /a views+=1
+set /a total_views+=1
+
+goto :loop
+```
+This will work provided you don't stop, then restart the script within the same minute. Also, you'd be averaging 25 views per minute, lol.
+The reason why I capped the view count to 25 per minute is because on the 30th profile request without pausing, the server will begin to send back a `400 Bad Request` error.
+
+[url-encode your ticket here](https://www.urlencoder.org/)
+
 # Nebulous-ViewBot
 Become a celebrity on Nebulous.
 
