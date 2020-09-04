@@ -64,3 +64,5 @@ Insta: [@r0x35c](https://www.instagram.com/r0x35c)
 
 ## Warning
 I am not responsible for what you do with this. I am not responsible for what happens to you or your account by using this.
+
+**I am not affiliated with Simplicial Software or any of it's associates.**
